@@ -1,1 +1,7 @@
 raw_data/
+chess_board_64*
+build/
+.python-version
+.py*
+.ip*
+main.py
