@@ -19,17 +19,17 @@ def fen_to_input_columns(fen):
 	# create dictionary for pieces
 	translation_dict = {
         'R': '4',
-        'r': '4',
+        'r': '10',
         'N': '2',
-        'n': '2',
+        'n': '8',
         'B': '3',
-        'b': '3',
+        'b': '9',
         'Q': '5',
-        'q': '5',
+        'q': '11',
         'K': '6',
-        'k': '6',
+        'k': '12',
 		'P': '1',
-		'p': '1'
+		'p': '7'
     }
 	
 	# loop through characters in inverted, cleaned string, and reassign their value according to dict
