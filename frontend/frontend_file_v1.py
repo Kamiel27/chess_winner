@@ -47,7 +47,7 @@ st.text("") # this add empty lines to the display, so can use it to space out el
 ######################
 # For the MVP
 
-st.text("""Given a snapshot of an on-going chess game (FEN string), this app predicts 
+st.text("""Given a snapshot of an on-going chess game (FEN string), this app predicts
 which player (black or white) has a higher probability of winning the game""")
 st.text("(Current features displayed here were adapted to fit the MVP of this project)")
 st.text("") # add blank space
@@ -77,16 +77,14 @@ st.text("")
 st.text("")
 st.markdown("***")
 
-st.text("Winner prediction")
+st.text("Winning predictions")
 
-st.text("""Button for prediction is currently de-activated. 
-Waiting for best model to be deployed to the cloud :)""")
+#st.text("""Button for prediction is currently de-activated.
+#Waiting for best model to be deployed to the cloud :)""")
 
-#if st.button('Predict'):
-#
-#	# transform FEN into correct input format for model
-#	X_new = fen_to_input_columns(fen)
-#	
-#	# prediction
-#	response = requests.get(f"https://URL_FOR_MODEL_ON_CLOUD_RUN/predict?X_new={X_new}").json()
-#	st.write("Most likely winner:", str(response['prediction']))
+if st.button('Predict'):
+
+	# prediction
+	response = requests.get(f"https://chesswinner-wjazvss5bq-ew.a.run.app/predict?fen={fen}").json()
+	st.write("Probability of win for white:", str(response['white']))
+    st.write("Probability of win for black:", str(response['black']))
