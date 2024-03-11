@@ -86,5 +86,4 @@ if st.button('Predict'):
 
 	# prediction
 	response = requests.get(f"https://chesswinner-wjazvss5bq-ew.a.run.app/predict?fen={fen}").json()
-	st.write("Probability of win for white:", str(response['white']))
-    # st.write("Probability of win for black:", str(response['black']))
+	st.write(f"Probability of win for white: {response['white']}\nProbability of win for black:{response['black']}")
