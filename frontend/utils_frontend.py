@@ -76,10 +76,3 @@ def from_number_to_player(x):
 		return "white"
 	elif x == 1:
 		return "black"
-
-def from_slash_to_percent(fen):
-	# takes a regular FEN with slashes separating rows
-	# and turns slash into % symbol
-
-	fen_adjusted = fen.replace('/', '%')
-	return fen_adjusted
