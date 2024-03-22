@@ -1,0 +1,13 @@
+LICENSE
+setup.py
+chessfenbot_reduced/__init__.py
+chessfenbot_reduced/api_file.py
+chessfenbot_reduced/chessboard_finder.py
+chessfenbot_reduced/chessboard_predictor.py
+chessfenbot_reduced/helper_functions.py
+chessfenbot_reduced/helper_image_loading.py
+chessfenbot_reduced.egg-info/PKG-INFO
+chessfenbot_reduced.egg-info/SOURCES.txt
+chessfenbot_reduced.egg-info/dependency_links.txt
+chessfenbot_reduced.egg-info/requires.txt
+chessfenbot_reduced.egg-info/top_level.txt
