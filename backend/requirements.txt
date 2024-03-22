@@ -1,2 +1,7 @@
 pandas
 chess
+scikit-learn==1.4.1.post1
+
+# API
+fastapi==0.108.0
+uvicorn

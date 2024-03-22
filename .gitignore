@@ -6,3 +6,4 @@ build/
 __py*
 .ip*
 main.py
+*.pkl
