@@ -18,6 +18,13 @@ def load_model():
     model = pickle.load(open(os.environ.get("MODEL_TARGET_PICKLE"), 'rb'))
     return model
 
+def load_model_CP():
+    '''
+    Load model
+    '''
+    model = pickle.load(open(os.environ.get("MODEL_TARGET_PICKLE_CP"), 'rb'))
+    return model
+
 def save_model(model):
     '''
     Save model in pickle format

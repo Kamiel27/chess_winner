@@ -1,38 +1,51 @@
 import pandas as pd
 import re
+import os
 import chess
+from chess_winner import engine
 
 class Board64:
 
-    def __init__(self,target:int):
+    def __init__(self,target:int,engine:engine):
         """
         Init a new board
         """
         self.board = chess.Board()
         self.target = target
+        self.engine = engine
 
     def get_grid(self):
         """
         Get the grid in 64 columns + the target
         """
-        squares=[]
+        grid=[]
         for i in range(0,64):
             piece = self.board.piece_at(i)
             if piece:
-                squares.append(piece.piece_type + (0 if piece.color else 6))
+                grid.append(chess.piece_symbol(piece.piece_type).upper() if piece.color else chess.piece_symbol(piece.piece_type))
             else :
-                squares.append(0)
-        squares.append(self.target)
-        return squares
+                grid.append(0)
+        # add the user turn
+        grid.append(int(self.board.turn))
+        # keep only the 1st parts of the fen (to calculate the same each time we see the position)
+        fens = self.board.fen().split(' ')
+        fen = ' '.join(fens[:-4])
+        self.board.set_fen(fen)
+        # add the analysed score (init a new fen)
+        grid.append(self.engine.analyse(self.board))
+        # add the target (win/loss)
+        grid.append(self.target)
+        # return the grid
+        return grid
 
     def get_all_grid(self,moves:list):
         """
         Apply a moves sequence and get all grids
         """
-        # init grid list
-        grid=[]
         # if moves not empty
         if len(moves):
+            # init initial grid
+            grid=[self.get_grid()]
             # for each moves try to execute and add to grid
             for move in moves:
                 try:
@@ -43,7 +56,7 @@ class Board64:
         # return the grid
         return grid
 
-    def get_moves(pgn:str):
+    def get_moves(self,pgn:str):
         """
         Get moves list in algebraic notation from a pgn string
         """
