@@ -1,8 +1,10 @@
-numpy==1.26.4
+numpy>=1.23.5
 beautifulsoup4<5,>=4.6.3
 lxml<5,>=4.2.4
 Pillow>=10.1.0
 tensorflow>=2.10.1
 requests<3,>=2.21.0
+python-multipart==0.0.9
+python-dotenv==1.0.1
 fastapi==0.110.0
 uvicorn==0.29.0

@@ -1,4 +1,14 @@
 Metadata-Version: 2.1
-Name: chessfenbot-reduced
+Name: chessfenbot_reduced
 Version: 0.0.1
 License-File: LICENSE
+Requires-Dist: numpy>=1.23.5
+Requires-Dist: beautifulsoup4<5,>=4.6.3
+Requires-Dist: lxml<5,>=4.2.4
+Requires-Dist: Pillow>=10.1.0
+Requires-Dist: tensorflow>=2.10.1
+Requires-Dist: requests<3,>=2.21.0
+Requires-Dist: python-multipart==0.0.9
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: fastapi==0.110.0
+Requires-Dist: uvicorn==0.29.0
