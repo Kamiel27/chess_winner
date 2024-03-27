@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from chess_winner.data import load_model,load_model_CP
-from chess_winner.utils import fen_to_input_columns,symbols_to_dict
+from chess_winner.utils import fen_to_input_columns,symbols_to_dict,to_revert,revert_fen
 import os
 import pandas as pd
 
@@ -15,6 +15,9 @@ def predict(
     """
     Make a chess prediction.
     """
+    # if wrong side we revert the fen
+    if to_revert(fen):
+        fen = revert_fen(fen)
     # convert a fen into predictable dataframe
     input = symbols_to_dict(fen_to_input_columns(fen))
     # predict probas

@@ -120,3 +120,26 @@ def dict_to_symbols(symbols):
     #return the new 64 mapped values columns
     symbols.iloc[:,0:64]=symbols.iloc[:,0:64].map(lambda x: translation_map[x] if x in translation_map else 0)
     return symbols
+
+def revert_fen(fen):
+    '''
+    revert chess board fen
+    '''
+    splits = fen.split(' ')
+    splits[0]=splits[0][::-1]
+    return ' '.join(splits)
+
+def to_revert(fen):
+    '''
+    detect chess board side
+    '''
+    splits = fen.split('/')
+    cntupper=cntlower=0
+    # check the upper side only
+    side = ' '.join(fen.split('/')[0:4])
+    for char in side:
+        if ~char.isdigit() & char.isupper():
+            cntupper+=1
+        if ~char.isdigit() & char.islower():
+            cntlower+=1
+    return True if cntupper>cntlower else False
