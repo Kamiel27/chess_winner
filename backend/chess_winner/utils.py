@@ -68,6 +68,14 @@ def fen_to_input_columns(fen):
 
     # new chess engine
     engine = Engine()
+
+    # test if a side is checked
+    fen = fen.split(' ')[0]
+    # and if yes for the fen side
+    if is_check(fen + ' b'):
+        fen = fen + ' b'
+    if is_check(fen + ' w'):
+        fen = fen + ' w'
     # analyse result (get score)
     score = engine.analyse(chess.Board(fen))
     # add turn to dataframe
@@ -143,3 +151,9 @@ def to_revert(fen):
         if ~char.isdigit() & char.islower():
             cntlower+=1
     return True if cntupper>cntlower else False
+
+def is_checkmate(fen):
+    return chess.Board(fen).is_checkmate()
+
+def is_check(fen):
+    return chess.Board(fen).is_check()
